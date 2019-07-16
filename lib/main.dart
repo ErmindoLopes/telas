@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telas/pages/home/home_page_1.dart';
+import 'package:telas/pages/on_boarding/on_boarding_1.dart';
 
 void main() => runApp(MyApp());
 
@@ -64,6 +65,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("Home 1"),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage1(); }));
+                },
+              ),
+
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("OnBoarding", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.new_releases),
+                title: Text("OnBoarding 1"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return OnBoarding1(); }));
                 },
               ),
 
