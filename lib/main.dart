@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:telas/pages/animations/pulse_effect.dart';
 import 'package:telas/pages/home/home_page_1.dart';
+import 'package:telas/pages/maps/maps_page_1.dart';
+import 'package:telas/pages/maps/maps_page_2.dart';
 import 'package:telas/pages/on_boarding/on_boarding_1.dart';
 
-void main() => runApp(MyApp());
+void main() {
+
+  ///Set color status bar
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+    statusBarColor: Colors.transparent, //or set color with: Color(0xFF0000FF)
+  ));
+  
+  runApp(MyApp()); 
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -85,6 +97,70 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return OnBoarding1(); }));
                 },
               ),
+
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("Animations", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.android),
+                title: Text("Pulse"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return PulseEffect(); }));
+                },
+              ),
+
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("Mapas", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.map),
+                title: Text("Mapas com locations"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return MapsPage1(); }));
+                },
+              ),
+
+              ListTile(
+                leading: Icon(Icons.map),
+                title: Text("Mapas com GeoLocations"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return MapsPage2(); }));
+                },
+              ),
+
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("Sign Up", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.account_box),
+                title: Text("Sign Up 1"),
+                onTap: (){
+                  //Navigator.of(context).push(MaterialPageRoute(builder: (context){ return SignUp1(); }));
+                },
+              ),
+
+              
 
             ],
           ),
