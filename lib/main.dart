@@ -6,6 +6,9 @@ import 'package:telas/pages/maps/maps_page_1.dart';
 import 'package:telas/pages/maps/maps_page_2.dart';
 import 'package:telas/pages/on_boarding/on_boarding_1.dart';
 
+import 'pages/home/home_page_2.dart';
+import 'utils/my_globals.dart';
+
 void main() {
 
   ///Set color status bar
@@ -28,6 +31,9 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xff29302e),        
       ),
       home: MyHomePage(title: 'Exemplo de telas'),
+      
+      
+      
       debugShowCheckedModeBanner: false,      
     );
   }
@@ -45,11 +51,45 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>(); 
   
+  @override
+  void initState() {
+    super.initState();
+    MyGlobals.scaffoldKey(_scaffoldKey);
+    
+
+    //espera o mounted == true para iniciar os models
+    Future.doWhile((){ 
+      return !mounted;
+    })
+      .then((_){
+
+        Future.delayed(Duration(seconds: 2),(){
+
+          Future.wait(
+            [
+              MyGlobals.init()
+              
+            ]
+          );
+          
+
+            
+
+        });
+
+        
+      });
+    
+
+  }
+
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
@@ -77,6 +117,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("Home 1"),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage1(); }));
+                },
+              ),
+
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home 2"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage2(); }));
                 },
               ),
 

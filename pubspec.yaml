@@ -28,6 +28,8 @@ dependencies:
   geoflutterfire: ^2.0.2
   location: ^2.3.5
   font_awesome_flutter: 8.4.0
+  carousel_slider: any
+  
 
 dev_dependencies:
   flutter_test:
@@ -74,3 +76,27 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family : Popins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight : 600
+
+    - family : Gotik
+      fonts:
+        - asset: assets/fonts/GOTHIC.TTF
+          weight: 400
+        - asset: assets/fonts/GOTHICB.TTF
+          weight : 600
+    
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+        - asset: assets/fonts/Raleway-Medium.ttf
+        - asset: assets/fonts/Raleway-Bold.ttf
+        - asset: assets/fonts/Raleway-Light.ttf
+        - asset: assets/fonts/Raleway-Thin.ttf
+    

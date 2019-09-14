@@ -1,89 +1,157 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:telas/pages/widgets/custom_carousel_bar.dart';
 
-class HomePage1 extends StatefulWidget {
+class HomePage2 extends StatefulWidget {
   @override
-  _HomePage1State createState() => _HomePage1State();
+  _HomePage2State createState() => _HomePage2State();
 }
 
-class _HomePage1State extends State<HomePage1> {
+class _HomePage2State extends State<HomePage2> {
   
+  final _scrollController = new ScrollController();  
+  final Color bgColor = const Color(0xffe6e6e6);
+  Size screenSize;
  
+  @override
+  void dispose() { 
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {    
+    screenSize = MediaQuery.of(context).size;
     return _buildUI();
   }
 
 
   Widget _buildUI() {
-  
-    return Scaffold(
-      backgroundColor: Color(0xffe6e6e6),
-      appBar: _buildAppBar(),
-      body: _buildBody(),
+
+    return Container(
+      color: bgColor,
+      child: SafeArea(
+        bottom: false,
+        top: false,
+        child: Stack(
+          children: <Widget>[
+            Scaffold(              
+              backgroundColor: bgColor,
+              body: CustomScrollView(
+                controller: _scrollController,
+                slivers: <Widget>[
+                  _buildAppBar(),
+                  _buildBody(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
 
   }
 
 
-  AppBar _buildAppBar(){
-    return AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xff4DB151),        
-        centerTitle: true,
-        title: Card(
-          margin: EdgeInsets.symmetric(vertical: 10),
-          elevation: 8,
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.menu),
+  SliverAppBar _buildAppBar(){
+    return SliverAppBar(
+      backgroundColor: bgColor,
+      elevation: 1.0,
+      expandedHeight: screenSize.height / 3.0,
+      pinned: true,
+      floating: false,      
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.notifications), 
+          color: Colors.black54,
+          padding: EdgeInsets.zero,
+          onPressed: (){print("asda");},
+        ),
+        SizedBox(width: 5,)
+      ],
+      automaticallyImplyLeading: false,
+      titleSpacing: 0,
+      title: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        margin:  EdgeInsets.only(top: 10, bottom: 10, left: 12, right: 0),
+        elevation: 4,
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            IconButton(
+              padding: EdgeInsets.zero,
+              icon: const Icon(Icons.search),
+              color: Colors.grey[400],
+              onPressed: () => {},
+            ),
+            Text(
+              "Título",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: "Raleway",
+                fontSize: 18,
+                fontWeight: FontWeight.w400,
                 color: Colors.black54,
-                padding: EdgeInsets.zero,                
-                onPressed: (){print("asda");},
               ),
-              Text(
-                "Título",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "sans-serif",
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black54,
+            ),
+
+          ],
+        )
+      ),
+      flexibleSpace: _buildAppBarContent(), 
+    );
+
+  }
+
+  Widget _buildAppBarContent(){
+
+    return FlexibleSpaceBar(
+      background: Container(
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              top: 0,
+              child: Container(                
+                width: screenSize.width,
+                height: screenSize.height <= 593
+                  ? screenSize.height / 3 + 15
+                  : screenSize.height / 3 - 15,
+                child: CustomCarouselBar(
+                  images: newsList(),
+                  bgColor: bgColor,          
+                  onTap: (command){ 
+                    print(command);
+                  },
                 ),
               ),
-              IconButton(
-                icon: Icon(Icons.search), 
-                color: Colors.black54,
-                padding: EdgeInsets.zero,
-                onPressed: (){print("asda");},
-              ),
-            ],
-          )
+            ),            
+          ],
         ),
-      
-      );
-
+      ),
+    );
+  
   }
 
 
   Widget _buildBody(){
     
-    return ListView(
-      children: <Widget>[
-        _getNews(),
-        _getList(),
-      ],
-      
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        <Widget>[
+        
+          
+          _getNews(),
+
+          _getList(),
+
+        ],
+      ),
     );
 
   }
-
+  
 
   Widget _getNews(){
 
@@ -92,11 +160,11 @@ class _HomePage1State extends State<HomePage1> {
       children: <Widget>[        
         
         Container(
-          margin: EdgeInsets.only(left: 10, top: 20, right: 10, bottom: 5),
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 5),
           child: Text(
             "Novidades",                      
             style: TextStyle(
-              fontFamily: "sans-serif-medium",
+              fontFamily: "Raleway",
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: Colors.black54,
@@ -195,7 +263,7 @@ class _HomePage1State extends State<HomePage1> {
           child: Text(
             "Lista",                      
             style: TextStyle(
-              fontFamily: "sans-serif-medium",
+              fontFamily: "Raleway",
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: Colors.black54,
@@ -205,6 +273,8 @@ class _HomePage1State extends State<HomePage1> {
         ),
 
           
+        
+
         _ListItem(
           leadingColor: Colors.red.withOpacity(0.9),
           leadingIcon: Icon(Icons.home, color: Colors.white, size: 40,),
@@ -260,7 +330,52 @@ class _HomePage1State extends State<HomePage1> {
 
   }
 
+
+  List<dynamic> newsList(){
+    return [
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F1.png?alt=media&token=7ead18c6-8c3a-4857-8dca-eca024621fa4",
+            "command": "prod:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F10.png?alt=media&token=91bf468e-60f6-4284-abdb-e6074a304260",
+            "command": "prod:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F2.jpg?alt=media&token=e84d5fd5-bcb8-4a08-89b9-58e4e23c5cc0",
+            "command": "categ:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F3.png?alt=media&token=3116c47c-85e0-427f-992a-3342b5afc305",
+            "command": "promo:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F4.jpg?alt=media&token=986ce571-340a-46d8-9333-aee1b45b7ecd",
+            "command": "prod:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F5.png?alt=media&token=f0297de1-9df0-4301-b388-fd456d2ff6ea",
+            "command": "prod:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F6.png?alt=media&token=e5f9a0a5-a375-45a1-8279-ec8fed7586d3",
+            "command": "prod:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F7.png?alt=media&token=8caef9b3-8e9f-4f50-b9da-cb94b2b71341",
+            "command": "prod:1"
+        },
+        {
+            "image": "https://firebasestorage.googleapis.com/v0/b/aditek-shop.appspot.com/o/resources%2Fimages%2Fnews%2F8.png?alt=media&token=dbba157f-dad4-487d-929e-dc3e175992c8",
+            "command": "prod:1"
+        }
+    ];
+  }
+  
 }
+
+
+
 
 
 class _ListItem extends StatelessWidget {
@@ -316,7 +431,7 @@ class _ListItem extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xff37474F),
-                        fontFamily: "sans-serif",
+                        fontFamily: "Raleway",
                         fontWeight: FontWeight.bold
                       ),
                     ),
@@ -326,7 +441,7 @@ class _ListItem extends StatelessWidget {
                         subtitle,
                         style: TextStyle(
                           fontSize: 12,
-                          fontFamily: "sans-serif",
+                          fontFamily: "Raleway",
                           color: Color(0xff999999),
                         ),
                         
@@ -347,3 +462,4 @@ class _ListItem extends StatelessWidget {
     );
   }
 }
+
