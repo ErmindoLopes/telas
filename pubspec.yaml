@@ -29,6 +29,7 @@ dependencies:
   location: ^2.3.5
   font_awesome_flutter: 8.4.0
   carousel_slider: any
+  flutter_spinkit: any
   
 
 dev_dependencies:

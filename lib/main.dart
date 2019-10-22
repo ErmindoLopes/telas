@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:telas/pages/animations/pulse_effect.dart';
 import 'package:telas/pages/home/home_page_1.dart';
+import 'package:telas/pages/login/login_page_1.dart';
 import 'package:telas/pages/maps/maps_page_1.dart';
 import 'package:telas/pages/maps/maps_page_2.dart';
 import 'package:telas/pages/on_boarding/on_boarding_1.dart';
+import 'package:telas/pages/splash/splash_page_1.dart';
 
 import 'pages/home/home_page_2.dart';
 import 'utils/my_globals.dart';
@@ -14,6 +16,7 @@ void main() {
   ///Set color status bar
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
     statusBarColor: Colors.transparent, //or set color with: Color(0xFF0000FF)
+    
   ));
   
   runApp(MyApp()); 
@@ -199,12 +202,12 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Center(child: Text("Sign Up", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              Center(child: Text("Splash", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
               ListTile(
                 leading: Icon(Icons.account_box),
-                title: Text("Sign Up 1"),
+                title: Text("Splash 1"),
                 onTap: (){
-                  //Navigator.of(context).push(MaterialPageRoute(builder: (context){ return SignUp1(); }));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return SplashPage1(); }));
                 },
               ),
 
@@ -214,6 +217,25 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
 
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("Login", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.account_box),
+                title: Text("Login 1"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return LoginPage1(); }));
+                },
+              ),
+
+              
+
+            ],
+          ),
+        ),
 
       ],
     );
