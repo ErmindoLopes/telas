@@ -81,19 +81,25 @@ class _SplashPage1State extends State<SplashPage1> {
                   maxRadius: 45,                  
                 )
               ),
-
+              Expanded(
+                flex: 1,
+                child: Container(),
+              ),
               Container(
                 margin: EdgeInsets.only(top: 100),
                 child: _progressBar()
               ),
-
+              Expanded(
+                flex: 1,
+                child: Container(),
+              ),
               Container(
-                margin: EdgeInsets.only(bottom: 20, top: 10),
+                margin: EdgeInsets.only(top: 10),
                 child: Column(
                   children: <Widget>[
                     CustomProgressIndicator(color: Colors.black,),
                     Text(
-                      "Sadasdsadsadsad",
+                      "XXXXXXXXXXXXXX",
                       style: TextStyle(
                         color: Colors.black45,                    
                         fontWeight: FontWeight.w800,
@@ -103,6 +109,7 @@ class _SplashPage1State extends State<SplashPage1> {
                 )
               ),
               
+              SizedBox(height: 50,)
               
             ],
 
@@ -187,9 +194,9 @@ class _SplashPage1State extends State<SplashPage1> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: LinearProgressIndicator(
-                      backgroundColor: Colors.amber[50],
+                      backgroundColor: kInfoBgLightColor,
                       value: 50 / 100.0 ,
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.amber[600]),
+                      valueColor: AlwaysStoppedAnimation<Color>(kInfoBgDarkColor),
                     ),
                   ),
                 ),
