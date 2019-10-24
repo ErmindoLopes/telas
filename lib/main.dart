@@ -9,6 +9,7 @@ import 'package:telas/pages/on_boarding/on_boarding_1.dart';
 import 'package:telas/pages/splash/splash_page_1.dart';
 
 import 'pages/home/home_page_2.dart';
+import 'pages/home/home_page_3.dart';
 import 'utils/my_globals.dart';
 
 void main() {
@@ -128,6 +129,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("Home 2"),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage2(); }));
+                },
+              ),
+
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home 3"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage3(); }));
                 },
               ),
 
