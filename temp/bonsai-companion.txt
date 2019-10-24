@@ -15,13 +15,23 @@ Home
 	Bottom Navigator com slide up para item ações
 		minhas plantas
 		minhas salas
-		ações
+		ações (slide up) botao?
 			mantenção de planta (rega, poda, etc...)
 			assistir video (rewards)			
+		like of the day (tinder plantas)
 		mensagens
 			listar solicitações de follow
 			listar mensagens do sistema
 
-usar git FlutterGeofencing para pegar geo location			
+usar git FlutterGeofencing para pegar geo location		
+usar flushbar como toast
+usar direct-select-flutter como combobox
+usar scratcher para criar puzzle de raspadinha
+usar flutter_sticky_infinite_list como timeline da manutenção
+usar flutter_inner_drawer como drawer
+usar flutter_xlider como slider
+usar reorderables na lista de viveiros preferidos da home
+usar roughike/page-transformer paralax na galery
+colocar um flushbar pinado no bottom da home, quando estiver offline
 		
 	
