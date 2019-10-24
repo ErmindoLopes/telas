@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:telas/Library/custom_curved_navigation_bar/custom_curved_navigation_bar.dart';
@@ -132,24 +133,19 @@ class _HomePage3State extends State<HomePage3> {
         Image.asset(
           "assets/images/bg3.jpg",
           fit: BoxFit.cover,
-          colorBlendMode: BlendMode.darken,
-          color: Colors.black38,
-        ),
-        new Center(
-          child: new ClipRect(
-            child: new BackdropFilter(
-              filter: new ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-              child: new Container(
-                //width: 200.0,
-                //height: 200.0,
-                decoration: new BoxDecoration(
-                  color: Colors.grey.shade200.withOpacity(0.5)
-                ),
-              ),
-            ),
-          ),
+          colorBlendMode: BlendMode.colorBurn,
+          color: Colors.black38,          
         ),
         
+        //permafrost
+        BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 6),
+          child: Container(
+            //color: Color.fromRGBO(0, 0, 0, 0.5),
+            color: Colors.grey.shade200.withOpacity(0.2)
+          ),
+        ),
+
         ListView(
           children: <Widget>[
             _getNews(),
@@ -221,7 +217,21 @@ class _HomePage3State extends State<HomePage3> {
                 icon: Icon(Icons.search), 
                 color: Colors.black54,
                 padding: EdgeInsets.zero,
-                onPressed: (){print("asda");},
+                onPressed: (){
+                  Flushbar(
+                    message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                    icon: Icon(
+                      Icons.info_outline,
+                      size: 28.0,
+                      color: Colors.red[900],
+                    ),
+                    //duration: Duration(days: 3),
+                    flushbarPosition: FlushbarPosition.TOP,
+                    //isDismissible: false,
+                    leftBarIndicatorColor: Colors.red[900],
+                    backgroundColor: Colors.red[300],
+                  )..show(context);
+                },
               ),
             ],
           )
