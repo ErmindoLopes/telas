@@ -1,11 +1,14 @@
 Home
 	drawer
-		Minha conta		
+		Minha conta
+		Meus créditos		
 		buy premium
 		Rate us
 		log off
 	search com slive
 		pesq planta e viveiro divididos por tabbar e windows scroll
+			usar git Flutter Parallax Nav Demo
+			usar flutter_staggered_grid_view na lista
 	Slide
 		Top 10 plantas da ultima semana. ao clicar, lista os viveiros que a planta pertence 		
 	Lista de viveiros Preferidos
@@ -18,5 +21,7 @@ Home
 		mensagens
 			listar solicitações de follow
 			listar mensagens do sistema
+
+usar git FlutterGeofencing para pegar geo location			
 		
 	
