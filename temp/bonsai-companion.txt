@@ -1,0 +1,22 @@
+Home
+	drawer
+		Minha conta		
+		buy premium
+		Rate us
+		log off
+	search com slive
+		pesq planta e viveiro divididos por tabbar e windows scroll
+	Slide
+		Top 10 plantas da ultima semana. ao clicar, lista os viveiros que a planta pertence 		
+	Lista de viveiros Preferidos
+	Bottom Navigator com slide up para item ações
+		minhas plantas
+		minhas salas
+		ações
+			mantenção de planta (rega, poda, etc...)
+			assistir video (rewards)			
+		mensagens
+			listar solicitações de follow
+			listar mensagens do sistema
+		
+	
