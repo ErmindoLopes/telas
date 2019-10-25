@@ -69,7 +69,6 @@ class _HomePage3State extends State<HomePage3> {
 
   }
 
-
   Widget _buildInnerDrawer(){
     return InnerDrawer(
       key: _innerDrawerKey,
@@ -122,7 +121,6 @@ class _HomePage3State extends State<HomePage3> {
       margin: EdgeInsets.all(10),
     );
   }
-
   
   Widget _buildBody(){
     
@@ -131,7 +129,7 @@ class _HomePage3State extends State<HomePage3> {
       fit: StackFit.expand,
       children: <Widget>[
         Image.asset(
-          "assets/images/bg3.jpg",
+          "assets/images/selesnya.jpg",
           fit: BoxFit.cover,
           colorBlendMode: BlendMode.colorBurn,
           color: Colors.black38,          
@@ -157,8 +155,6 @@ class _HomePage3State extends State<HomePage3> {
     );
 
   }
-
-  
 
   Widget _buildBottomBar(){
 
