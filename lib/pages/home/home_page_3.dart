@@ -97,7 +97,7 @@ class _HomePage3State extends State<HomePage3> {
       backgroundColor: kBackgroundColor,
       appBar: _buildAppBar(),
       body: VerticalDragBottomSheet(
-        headerColor: Color(0xffcecece),
+        headerColor: kSecondaryDarkColor,
         bottomBar: _buildBottomBar(),
         innerContent: _buildBottomSeetContent(),
         outerContent: _buildBody(),
@@ -169,9 +169,9 @@ class _HomePage3State extends State<HomePage3> {
           LabeledIcon(index:3, icon:Icons.person, text: "Conta", iconSize: 30, style: TextStyle(fontSize: 10),),
           LabeledIcon(index:4, icon:Icons.shopping_cart, text: "Carrinho", iconSize: 30, style: TextStyle(fontSize: 10),),
         ],
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Color(0xffcecece), //Color(0xffD0E4E3),
+        color: kSecondaryColor,
+        buttonBackgroundColor: kSecondaryColor,
+        backgroundColor: kSecondaryDarkColor,
         animationCurve: Curves.easeInOut,
         animationDuration: Duration(milliseconds: 600),
         onTap: (index) {
