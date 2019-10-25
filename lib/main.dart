@@ -7,9 +7,12 @@ import 'package:telas/pages/maps/maps_page_1.dart';
 import 'package:telas/pages/maps/maps_page_2.dart';
 import 'package:telas/pages/on_boarding/on_boarding_1.dart';
 import 'package:telas/pages/splash/splash_page_1.dart';
+import 'package:telas/utils/constants.dart';
+import 'package:telas/utils/styles.dart';
 
 import 'pages/home/home_page_2.dart';
 import 'pages/home/home_page_3.dart';
+import 'pages/lists/list_page_1.dart';
 import 'utils/my_globals.dart';
 
 void main() {
@@ -29,11 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData( 
-        backgroundColor: Color(0xffE6E6E6),//Color(0xfffffbe6),   
-        primaryColor: Color(0xff356859),
-        accentColor: Color(0xff29302e),        
-      ),
+      theme: buildLightTheme(),        
       home: MyHomePage(title: 'Exemplo de telas'),
       
       
@@ -137,6 +136,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("Home 3"),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage3(); }));
+                },
+              ),
+
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("List Page", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.list),
+                title: Text("List 1"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return ListPage1(); }));
                 },
               ),
 
