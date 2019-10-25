@@ -82,17 +82,7 @@ class _ListPage1State extends State<ListPage1> {
         ),
         SizedBox(width: 5,)
       ],
-      titleSpacing: 0,
-      // title: Text(
-      //   "Título",
-      //   textAlign: TextAlign.center,
-      //   style: TextStyle(
-      //     fontFamily: "Raleway",
-      //     fontSize: 22,
-      //     fontWeight: FontWeight.w400,
-      //     color: Colors.black54,
-      //   ),
-      // ),
+      titleSpacing: 0,      
       flexibleSpace: _buildAppBarContent(), 
     );
 
@@ -149,6 +139,7 @@ class _ListPage1State extends State<ListPage1> {
 
   Widget _buildBody(){
     
+
     return SliverList(
       delegate: SliverChildListDelegate(
         <Widget>[
