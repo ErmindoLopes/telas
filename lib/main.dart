@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:telas/pages/animations/pulse_effect.dart';
+import 'package:telas/pages/componentes/comp1.dart';
 import 'package:telas/pages/home/home_page_1.dart';
+import 'package:telas/pages/lists/list_page_2.dart';
 import 'package:telas/pages/login/login_page_1.dart';
 import 'package:telas/pages/maps/maps_page_1.dart';
 import 'package:telas/pages/maps/maps_page_2.dart';
@@ -157,6 +159,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
 
+              ListTile(
+                leading: Icon(Icons.list),
+                title: Text("Lista com injeção de item"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return ListPage2(); }));
+                },
+              ),
+
             ],
           ),
         ),
@@ -172,6 +182,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("OnBoarding 1"),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return OnBoarding1(); }));
+                },
+              ),
+
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Center(child: Text("Widgets", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              ListTile(
+                leading: Icon(Icons.block),
+                title: Text("Comp 1"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return Comp1(); }));
                 },
               ),
 
