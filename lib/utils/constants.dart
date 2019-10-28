@@ -19,6 +19,9 @@ const Color kFacebookColor = Color.fromRGBO(107, 112, 248, 1);
 const Color kInfoBgLightColor = Color(0xfffff8e1); //Colors.amber[50]
 const Color kInfoBgDarkColor = Color(0xffffb300); //Colors.amber[600]
 
+const kGrey200 = Color(0xFFEEEEEE);
+const int kMinItensOnGalery = 3;
+
 
 
 
