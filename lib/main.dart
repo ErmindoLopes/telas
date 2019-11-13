@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:telas/pages/animations/pulse_effect.dart';
+import 'package:telas/pages/backdrop/backdrop_page.dart';
 import 'package:telas/pages/componentes/comp1.dart';
 import 'package:telas/pages/detail_prod/detail_prod1.dart';
 import 'package:telas/pages/home/home_page_1.dart';
@@ -117,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Center(child: Text("Home", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+              Center(child: Text("Home, Backdrop", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
               ListTile(
                 leading: Icon(Icons.home),
                 title: Text("Home 1"),
@@ -139,6 +140,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text("Home 3"),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){ return HomePage3(); }));
+                },
+              ),
+
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Backdrop"),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){ return BackdropPage(); }));
                 },
               ),
 

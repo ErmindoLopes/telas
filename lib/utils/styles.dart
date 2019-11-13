@@ -50,6 +50,13 @@ const Color kInfoBgLightColor = Color(0xfffff8e1); //Colors.amber[50]
 const Color kInfoBgDarkColor = Color(0xffffb300); //Colors.amber[600]
 
 
+
+
+
+
+
+
+
 const ColorScheme kColorScheme = ColorScheme(
   primary: kPrimaryColor,
   primaryVariant: kGrey900,

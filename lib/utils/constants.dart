@@ -24,5 +24,10 @@ const int kMinItensOnGalery = 3;
 
 
 
-
+const Color kBackdropBackBgColor = Color(0xffE8EBD2);
+const Color kBackdropAbaColor = Color(0xffFFFFEF);
+const Color kBackdropAbaBorderColor = Color(0xffD5D5D5);
+const double kBackdropHeaderFactor = 1/5;
+const double kBackdropAbaOffset = 30.0;
+const EdgeInsetsGeometry kBackdropFrontPadding = const EdgeInsets.only(left: 10, right: 10, bottom: 10);
 
