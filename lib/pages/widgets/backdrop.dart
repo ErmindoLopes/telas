@@ -105,7 +105,15 @@ class _BackdropTitle extends AnimatedWidget {
               alignment: AlignmentDirectional.center,
               children: <Widget>[
                 
-                
+                // AnimatedCrossFade(
+                //   crossFadeState: (animation.status == AnimationStatus.completed || animation.status == AnimationStatus.forward)
+                //     ? CrossFadeState.showFirst
+                //     : CrossFadeState.showSecond,
+                //   duration: Duration(milliseconds: 300),
+                //   firstChild: frontTitle,
+                //   secondChild: backTitle,
+                // ),
+
                 Opacity(
                   opacity: CurvedAnimation(
                     parent: ReverseAnimation(animation),
