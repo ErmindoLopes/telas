@@ -162,7 +162,6 @@ class Backdrop extends StatefulWidget {
   final Widget frontTitle;
   final Widget backTitle;
   final List<Widget> actions;
-  final AnimationController controller;
   final String imagePath;
 
   const Backdrop({
@@ -170,14 +169,12 @@ class Backdrop extends StatefulWidget {
     @required this.backLayer,
     @required this.frontTitle,
     @required this.backTitle,
-    @required this.controller,
     @required this.imagePath,
     this.actions = const <Widget>[],
   })  : assert(frontLayer != null),
         assert(backLayer != null),
         assert(frontTitle != null),
-        assert(backTitle != null),
-        assert(controller != null);
+        assert(backTitle != null);
 
   @override
   _BackdropState createState() => _BackdropState();
@@ -193,7 +190,12 @@ class _BackdropState extends State<Backdrop> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    _controller = widget.controller;
+    
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 450),
+      value: 1.0,
+    );
 
   }
 

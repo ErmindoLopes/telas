@@ -9,22 +9,6 @@ class BackdropPage extends StatefulWidget {
 
 class _BackdropPageState extends State<BackdropPage> with SingleTickerProviderStateMixin{
 
-  AnimationController _backDropController;
-
-  @override
-  void initState() {
-    
-    super.initState();
-    
-    _backDropController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 450),
-      value: 1.0,
-    );
-
-    
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +45,6 @@ class _BackdropPageState extends State<BackdropPage> with SingleTickerProviderSt
           )
         ],
         imagePath: "assets/images/backdrop1.png",
-        controller: _backDropController,
       )
       
     );
